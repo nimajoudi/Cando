@@ -11,17 +11,17 @@ def main() :
     parser.add_argument('Number3', help = 'please enter the number : ')
     parser.add_argument('Number4', help = 'please enter the number : ')
     args = parser.parse_args()
-    if args == '' :
-        print('Error!!! : Number is empty')
 
     if int(args.Number1) % 2 == 0 :
         print(args.Number1, ' : is Even')
     else :
         print(args.Number1, ': is Odd')
+        
     if int(args.Number2) % 2 == 0 :
         print(args.Number2, ' : is Even')
     else :
         print(args.Number2, ' : is Odd')
+    
     if int(args.Number3) % 2 == 0 :
         print(args.Number3, ' : is Even')
     else :
