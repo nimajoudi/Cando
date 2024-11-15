@@ -1,50 +1,54 @@
-from colorama import Fore, Style, init
+from colorama import init, Style, Fore , Back
 
-init()
-
-def create_multiplication_table(num1, num2):
-    table = []
-    results = []
-    for i in range(1, num1 + 1):
-        row = []
-        for j in range(1, num2 + 1):
-            if i == 2 or j == 2:
-                row.append(None)  # نادیده گرفتن عدد 2 در سطر و ستون
-            else:
-                product = i * j
-                row.append(product)
-                results.append(product)
-        table.append(row)
-    return table, results
-
-def print_colored_table(table):
-    for i, row in enumerate(table):
-        for j, item in enumerate(row):
-            if item is None:
-                print("   ", end=" ")
-            elif i == 3 or j == 3:  # سطر و ستون عدد 4
-                print(f"{Fore.RED}{item:3}{Style.RESET_ALL}", end=" ")
-            else:
-                print(f"{Fore.YELLOW}{item:3}{Style.RESET_ALL}", end=" ")
-        print()
-
-def extract_even_numbers(results):
-    even_numbers = [num for num in results if num % 2 == 0]
-    return even_numbers
-
-def main():
-    num1 = int(input("عدد اول را وارد کنید (بین 6 تا 10): "))
-    num2 = int(input("عدد دوم را وارد کنید (بین 6 تا 10): "))
+def function1 () : 
     
-    if not (6 <= num1 <= 10 and 6 <= num2 <= 10):
-        print("اعداد باید بین 6 تا 10 باشند.")
-        return
+    var_input = int(input('Please enter the Number1 (6-10) : '))
+    var_input2 = int(input('Please enter the Number2 (6-10) : '))
     
-    table, results = create_multiplication_table(num1, num2)
-    print_colored_table(table)
-    
-    even_numbers = extract_even_numbers(results)
-    print("اعداد زوج استخراج شده:", even_numbers)
+    if 6 <= var_input <= 10 and 6 <= var_input2 <= 10 :
+        var_list = []
+        
+        for i in range (1, var_input + 1) :
+            if i == 2 :
+                continue
+            
+            else :            
+                for j in range (1, var_input2 + 1) :
+                    if j == 2 :
+                        continue
+                    
+                    elif j == 4 :
+                        print(Fore.RED + str(i*j), end = '  ' + Style.RESET_ALL)
+                        
+                        var_list.append(i*j)    
+                        
+                        
+                    else : 
+                        print(Fore.YELLOW + str(i*j), end = '  ')
+                        
+                        var_list.append(i*j)    
+                    
+            
+            print()
+            
+        return var_list
+        
+    else : 
+        print('Invalid input')
+        
+var_result_func1 = function1()   
+
+print(var_result_func1)   
 
 
-main()
+def even (var_result_func1) :
+    list_function2 = []
+    
+    for z in range(len(var_result_func1)) :
+        # print(z)
+        if var_result_func1[z] % 2 == 0 :
+            list_function2.append(z)
+            
+    print(list_function2)        
+        
+even(var_result_func1) 
